@@ -1,0 +1,118 @@
+<html>
+<head>
+  <title>My Widget Page</title>
+  <style>
+    #container {
+      width: 100%;
+    }
+    .box {
+      float: left;
+      width: 30%;
+      padding: 10px;
+      min-height: 600px;
+    }
+    #box1 {
+      background-color: #ff9999;
+    }
+    #box2 {
+      background-color: #99ccff;
+    }
+    #box3 {
+      background-color: #99ff99;
+    }
+    h2 {
+      text-align: center;
+    }
+
+    
+    .game-wrapper {
+      width: 100%;
+      height: 400px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .game-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 800px;   
+      height: 600px;  
+      transform: scale(0.6); 
+      transform-origin: top left;
+      border: none;
+    }
+  </style>
+</head>
+
+<body>
+  <h2 style="text-align:center;">My Widget Page</h2>
+
+  <div id="container">
+    
+    <div class="box" id="box1">
+      <h2>Weather</h2>
+      <a class="weatherwidget-io"
+         href="https://forecast7.com/en/40d71n74d01/new-york/"
+         data-label_1="NEW YORK"
+         data-label_2="WEATHER"
+         data-theme="original">
+         NEW YORK WEATHER
+      </a>
+
+      <script>
+        !function(d,s,id){
+          var js,fjs=d.getElementsByTagName(s)[0];
+          if(!d.getElementById(id)){
+            js=d.createElement(s);
+            js.id=id;
+            js.src='https://weatherwidget.io/js/widget.min.js';
+            fjs.parentNode.insertBefore(js,fjs);
+          }
+        }(document,'script','weatherwidget-io-js');
+      </script>
+    </div>
+
+    <div class="box" id="box2">
+      <h2>Calendar</h2>
+      <iframe
+        src="https://calendar.google.com/calendar/embed?src=en.canadian%23holiday%40group.v.calendar.google.com&ctz=America%2FToronto"
+        width="100%"
+        height="400">
+      </iframe>
+    </div>
+
+    <div class="box" id="box3">
+      <h2>Tools</h2>
+
+      <iframe
+        src="https://openspeedtest.com/Get-widget.php"
+        width="100%"
+        height="200">
+      </iframe>
+
+      <br><br>
+
+      <iframe
+        src="https://www.google.com/maps?q=Toronto&output=embed"
+        width="100%"
+        height="200">
+      </iframe>
+
+      <br><br>
+
+      <h3 style="text-align:center;">Pac-Man Game</h3>
+
+     
+      <div class="game-wrapper">
+        <iframe 
+          src="https://freepacman.org/" 
+          allowfullscreen>
+        </iframe>
+      </div>
+
+    </div>
+
+  </div>
+</body>
+</html>
