@@ -43,7 +43,6 @@
       border: none;
     }
 
-  
     .back-btn {
       display: block;
       width: fit-content;
@@ -75,12 +74,14 @@
     
     <div class="box" id="box1">
       <h2>Weather</h2>
+
+      <!-- UPDATED TO TORONTO -->
       <a class="weatherwidget-io"
-         href="https://forecast7.com/en/40d71n74d01/new-york/"
-         data-label_1="NEW YORK"
+         href="https://forecast7.com/en/43d65n79d38/toronto/"
+         data-label_1="TORONTO"
          data-label_2="WEATHER"
          data-theme="original">
-         NEW YORK WEATHER
+         TORONTO WEATHER
       </a>
 
       <script>
@@ -98,10 +99,20 @@
 
     <div class="box" id="box2">
       <h2>Calendar</h2>
+
       <iframe
         src="https://calendar.google.com/calendar/embed?src=en.canadian%23holiday%40group.v.calendar.google.com&ctz=America%2FToronto"
         width="100%"
         height="400">
+      </iframe>
+
+      <!-- LIVE CLOCK ADDED -->
+      <br><br>
+      <iframe 
+        src="https://free.timeanddate.com/clock/i9abcdefgh/n250/tlca/fn16/fs16/tt0/tw0/tm1/ts1"
+        width="100%" 
+        height="100" 
+        frameborder="0">
       </iframe>
     </div>
 
@@ -120,6 +131,18 @@
         src="https://www.google.com/maps?q=Toronto&output=embed"
         width="100%"
         height="200">
+      </iframe>
+
+      <br><br>
+
+      <!-- YOUTUBE LIVE STREAM ADDED -->
+      <iframe 
+        width="100%" 
+        height="200"
+        src="https://www.youtube.com/embed/5qap5aO4i9A"
+        title="YouTube live stream"
+        frameborder="0"
+        allowfullscreen>
       </iframe>
 
       <br><br>
