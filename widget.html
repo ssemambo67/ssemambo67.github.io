@@ -3,162 +3,256 @@
   <title>My web page</title>
   <style>
 
-    #container {
-      width: 100%;
-    }
-    .box {
-      float: left;
-      width: 30%;
-      padding: 10px;
-      min-height: 600px;
-    }
-    #box1 {
-      background-color: #ff9999;
-    }
-    #box2 {
-      background-color: #99ccff;
-    }
-    #box3 {
-      background-color: #99ff99;
-    }
-    h2 {
-      text-align: center;
-    }
+```
+#container {
+  width: 100%;
+}
 
-    .game-wrapper {
-      width: 100%;
-      height: 400px;
-      overflow: hidden;
-      position: relative;
-    }
+.box {
+  float: left;
+  width: 30%;
+  padding: 10px;
+  min-height: 600px;
+}
 
-    .game-wrapper iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 800px;   
-      height: 600px;  
-      transform: scale(0.6); 
-      transform-origin: top left;
-      border: none;
-    }
+#box1 {
+  background-color: #ff9999;
+}
 
-    .back-btn {
-      display: block;
-      width: fit-content;
-      margin: 10px auto;
-      padding: 12px 18px;
-      background-color: black;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 18px;
-      position: relative;
-      z-index: 9999;
-    }
+#box2 {
+  background-color: #99ccff;
+}
 
-    .back-btn:hover {
-      background-color: #444;
-    }
+#box3 {
+  background-color: #99ff99;
+}
+
+h2 {
+  text-align: center;
+}
+
+.game-wrapper {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+}
+
+.game-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 800px;
+  height: 600px;
+  transform: scale(0.6);
+  transform-origin: top left;
+  border: none;
+}
+
+.back-btn {
+  display: block;
+  width: fit-content;
+  margin: 10px auto;
+  padding: 12px 18px;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 18px;
+  position: relative;
+  z-index: 9999;
+}
+
+.back-btn:hover {
+  background-color: #444;
+}
+
+/* ANALOG CLOCK */
+.clock {
+  width: 200px;
+  height: 200px;
+  border: 8px solid black;
+  border-radius: 50%;
+  margin: 20px auto;
+  position: relative;
+  background: white;
+}
+
+.hand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: 0%;
+  transform: rotate(90deg);
+  background: black;
+}
+
+.hour {
+  width: 35%;
+  height: 6px;
+}
+
+.minute {
+  width: 45%;
+  height: 4px;
+}
+
+.second {
+  width: 48%;
+  height: 2px;
+  background: red;
+}
+
+.center {
+  width: 10px;
+  height: 10px;
+  background: black;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.number {
+  position: absolute;
+  font-size: 16px;
+  font-weight: bold;
+}
+```
 
   </style>
 </head>
 
 <body>
 
-  <a href="index.html" class="back-btn">Back to Home</a>
+<a href="index.html" class="back-btn">Back to Home</a>
 
   <h2 style="text-align:center;">My Widget Page</h2>
 
   <div id="container">
-    
-    <div class="box" id="box1">
-      <h2>Weather</h2>
 
-      <!-- UPDATED TO TORONTO -->
-      <a class="weatherwidget-io"
-         href="https://forecast7.com/en/43d65n79d38/toronto/"
-         data-label_1="TORONTO"
-         data-label_2="WEATHER"
-         data-theme="original">
-         TORONTO WEATHER
-      </a>
+```
+<!-- WEATHER -->
+<div class="box" id="box1">
+  <h2>Weather</h2>
 
-      <script>
-        !function(d,s,id){
-          var js,fjs=d.getElementsByTagName(s)[0];
-          if(!d.getElementById(id)){
-            js=d.createElement(s);
-            js.id=id;
-            js.src='https://weatherwidget.io/js/widget.min.js';
-            fjs.parentNode.insertBefore(js,fjs);
-          }
-        }(document,'script','weatherwidget-io-js');
-      </script>
-    </div>
+  <a class="weatherwidget-io"
+     href="https://forecast7.com/en/43d65n79d38/toronto/"
+     data-label_1="TORONTO"
+     data-label_2="WEATHER"
+     data-theme="original">
+     TORONTO WEATHER
+  </a>
 
-    <div class="box" id="box2">
-      <h2>Calendar</h2>
+  <script>
+    !function(d,s,id){
+      var js,fjs=d.getElementsByTagName(s)[0];
+      if(!d.getElementById(id)){
+        js=d.createElement(s);
+        js.id=id;
+        js.src='https://weatherwidget.io/js/widget.min.js';
+        fjs.parentNode.insertBefore(js,fjs);
+      }
+    }(document,'script','weatherwidget-io-js');
+  </script>
+</div>
 
-      <iframe
-        src="https://calendar.google.com/calendar/embed?src=en.canadian%23holiday%40group.v.calendar.google.com&ctz=America%2FToronto"
-        width="100%"
-        height="400">
-      </iframe>
+<!-- CALENDAR + CLOCK -->
+<div class="box" id="box2">
+  <h2>Calendar</h2>
 
-      <!-- LIVE CLOCK ADDED -->
-      <br><br>
-      <iframe 
-        src="https://free.timeanddate.com/clock/i9abcdefgh/n250/tlca/fn16/fs16/tt0/tw0/tm1/ts1"
-        width="100%" 
-        height="100" 
-        frameborder="0">
-      </iframe>
-    </div>
+  <iframe
+    src="https://calendar.google.com/calendar/embed?src=en.canadian%23holiday%40group.v.calendar.google.com&ctz=America%2FToronto"
+    width="100%"
+    height="400">
+  </iframe>
 
-    <div class="box" id="box3">
-      <h2>Tools</h2>
+  <br><br>
 
-      <iframe
-        src="https://openspeedtest.com/Get-widget.php"
-        width="100%"
-        height="200">
-      </iframe>
+  <!-- ANALOG CLOCK -->
+  <div class="clock">
+    <div class="hand hour" id="hour"></div>
+    <div class="hand minute" id="minute"></div>
+    <div class="hand second" id="second"></div>
+    <div class="center"></div>
 
-      <br><br>
+    <div class="number" style="top:10px; left:50%; transform:translateX(-50%);">12</div>
+    <div class="number" style="top:50%; right:10px;">3</div>
+    <div class="number" style="bottom:10px; left:50%; transform:translateX(-50%);">6</div>
+    <div class="number" style="top:50%; left:10px;">9</div>
+  </div>
 
-      <iframe
-        src="https://www.google.com/maps?q=Toronto&output=embed"
-        width="100%"
-        height="200">
-      </iframe>
+</div>
 
-      <br><br>
+<!-- TOOLS -->
+<div class="box" id="box3">
+  <h2>Tools</h2>
 
-      <!-- YOUTUBE LIVE STREAM ADDED -->
-      <iframe 
-        width="100%" 
-        height="200"
-        src="https://www.youtube.com/embed/5qap5aO4i9A"
-        title="YouTube live stream"
-        frameborder="0"
-        allowfullscreen>
-      </iframe>
+  <iframe
+    src="https://openspeedtest.com/Get-widget.php"
+    width="100%"
+    height="200">
+  </iframe>
 
-      <br><br>
+  <br><br>
 
-      <h3 style="text-align:center;">Pac-Man Game</h3>
+  <iframe
+    src="https://www.google.com/maps?q=Toronto&output=embed"
+    width="100%"
+    height="200">
+  </iframe>
 
-      <div class="game-wrapper">
-        <iframe 
-          src="https://freepacman.org/" 
-          allowfullscreen>
-        </iframe>
-      </div>
+  <br><br>
 
-    </div>
+  <!-- LIVE EARTH FROM SPACE -->
+  <iframe 
+    width="100%" 
+    height="200"
+    src="https://www.youtube.com/embed/XBPjVzSoepo"
+    title="Live Earth from Space"
+    frameborder="0"
+    allowfullscreen>
+  </iframe>
+
+  <br><br>
+
+  <h3 style="text-align:center;">Pac-Man Game</h3>
+
+  <div class="game-wrapper">
+    <iframe 
+      src="https://freepacman.org/" 
+      allowfullscreen>
+    </iframe>
+  </div>
+
+</div>
+```
 
   </div>
+
+  <!-- CLOCK SCRIPT -->
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+
+      const seconds = now.getSeconds();
+      const minutes = now.getMinutes();
+      const hours = now.getHours();
+
+      const secDeg = seconds * 6;
+      const minDeg = minutes * 6;
+      const hourDeg = (hours % 12) * 30 + minutes * 0.5;
+
+      document.getElementById("second").style.transform = `rotate(${secDeg}deg)`;
+      document.getElementById("minute").style.transform = `rotate(${minDeg}deg)`;
+      document.getElementById("hour").style.transform = `rotate(${hourDeg}deg)`;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
 
 </body>
 </html>
