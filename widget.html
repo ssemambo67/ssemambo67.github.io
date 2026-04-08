@@ -70,6 +70,59 @@ font-weight: bold;
 margin-top: 10px;
 }
 
+/* CLOCK */
+.clock {
+width: 200px;
+height: 200px;
+border: 8px solid black;
+border-radius: 50%;
+margin: 20px auto;
+position: relative;
+background: white;
+}
+
+.hand {
+position: absolute;
+top: 50%;
+left: 50%;
+transform-origin: 0%;
+transform: rotate(90deg);
+background: black;
+}
+
+.hour {
+width: 35%;
+height: 6px;
+}
+
+.minute {
+width: 45%;
+height: 4px;
+}
+
+.second {
+width: 48%;
+height: 2px;
+background: red;
+}
+
+.center {
+width: 10px;
+height: 10px;
+background: black;
+border-radius: 50%;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+
+.number {
+position: absolute;
+font-size: 16px;
+font-weight: bold;
+}
+
   </style>
 </head>
 
@@ -93,17 +146,31 @@ margin-top: 10px;
   data-theme="original">
 TORONTO WEATHER </a>
 
-  <script>
-    !function(d,s,id){
-      var js,fjs=d.getElementsByTagName(s)[0];
-      if(!d.getElementById(id)){
-        js=d.createElement(s);
-        js.id=id;
-        js.src='https://weatherwidget.io/js/widget.min.js';
-        fjs.parentNode.insertBefore(js,fjs);
-      }
-    }(document,'script','weatherwidget-io-js');
-  </script>
+<script>
+!function(d,s,id){
+  var js,fjs=d.getElementsByTagName(s)[0];
+  if(!d.getElementById(id)){
+    js=d.createElement(s);
+    js.id=id;
+    js.src='https://weatherwidget.io/js/widget.min.js';
+    fjs.parentNode.insertBefore(js,fjs);
+  }
+}(document,'script','weatherwidget-io-js');
+</script>
+
+<div class="section-title">Clock</div>
+
+<div class="clock">
+  <div class="hand hour" id="hour"></div>
+  <div class="hand minute" id="minute"></div>
+  <div class="hand second" id="second"></div>
+  <div class="center"></div>
+
+  <div class="number" style="top:10px; left:50%; transform:translateX(-50%);">12</div>
+  <div class="number" style="top:50%; right:10px;">3</div>
+  <div class="number" style="bottom:10px; left:50%; transform:translateX(-50%);">6</div>
+  <div class="number" style="top:50%; left:10px;">9</div>
+</div>
 
 </div>
 
@@ -144,14 +211,14 @@ TORONTO WEATHER </a>
 
   <br>
 
-  <div class="section-title">Featured Video</div>
+  <div class="section-title"> YouWeb Videos </div>
 
   <iframe width="100%" height="200"
     src="https://www.youtube.com/embed/dQw4w9WgXcQ"
     allowfullscreen>
   </iframe>
 
-  <h3 style="text-align:center;">Pac-Man Game</h3>
+  <h3 style="text-align:center;"> Games </h3>
 
   <div class="game-wrapper">
     <iframe 
@@ -164,7 +231,7 @@ TORONTO WEATHER </a>
 
 </div>
 
-<!-- QUOTE SCRIPT -->
+<!-- SCRIPTS -->
 
 <script>
 const quotes = [
@@ -177,6 +244,25 @@ const quotes = [
 
 document.getElementById("quote").innerText =
   quotes[Math.floor(Math.random() * quotes.length)];
+
+function updateClock() {
+  const now = new Date();
+
+  const seconds = now.getSeconds();
+  const minutes = now.getMinutes();
+  const hours = now.getHours();
+
+  const secDeg = seconds * 6;
+  const minDeg = minutes * 6;
+  const hourDeg = (hours % 12) * 30 + minutes * 0.5;
+
+  document.getElementById("second").style.transform = `rotate(${secDeg}deg)`;
+  document.getElementById("minute").style.transform = `rotate(${minDeg}deg)`;
+  document.getElementById("hour").style.transform = `rotate(${hourDeg}deg)`;
+}
+
+setInterval(updateClock, 1000);
+updateClock();
 </script>
 
 </body>
