@@ -43,19 +43,23 @@
       border: none;
     }
 
-    /* ✅ Back button style */
+    /* ✅ FIXED Back button (always visible) */
     .back-btn {
-      display: inline-block;
-      margin: 10px;
-      padding: 10px 15px;
-      background-color: #333;
+      display: block;
+      width: fit-content;
+      margin: 10px auto;
+      padding: 12px 18px;
+      background-color: black;
       color: white;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 8px;
+      font-size: 18px;
+      position: relative;
+      z-index: 9999;
     }
 
     .back-btn:hover {
-      background-color: #555;
+      background-color: #444;
     }
 
   </style>
@@ -63,7 +67,7 @@
 
 <body>
 
-  <!-- ✅ Back button in correct place -->
+  <!-- ✅ Back button -->
   <a href="index.html" class="back-btn">⬅ Back to Home</a>
 
   <h2 style="text-align:center;">My Widget Page</h2>
@@ -133,5 +137,6 @@
     </div>
 
   </div>
+
 </body>
 </html>
